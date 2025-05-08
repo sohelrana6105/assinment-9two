@@ -1,0 +1,98 @@
+[
+  {
+    "id": 1,
+    "billType": "Electricity Bill",
+    "icon": "/assests/bill-type/electricity.png",
+    "organization": {
+      "name": "NESCO",
+      "icon": "/assests/Organization/nesco.jpg"
+    },
+
+    "amount": 1890,
+    "dueDate": "June 4, 2025"
+  },
+  {
+    "id": 2,
+    "billType": "Gas Bill",
+    "icon": "/assests/bill-type/gas-bill.png",
+    "organization": {
+      "name": "Titas",
+      "icon": "/assests/Organization/titas.png"
+    },
+
+    "amount": 1488,
+    "dueDate": "July 12, 2025"
+  },
+  {
+    "id": 3,
+    "billType": "Internet Bill",
+    "icon": "/assests/bill-type/Internet.webp",
+    "organization": {
+      "name": "Link3 ",
+      "icon": "/assests/Organization/link3.png"
+    },
+
+    "amount": 1200,
+    "dueDate": "August 1, 2025"
+  },
+  {
+    "id": 4,
+    "billType": "Water Bill",
+    "icon": "/assests/bill-type/water.png",
+    "organization": {
+      "name": "WASA",
+      "icon": "/assests/Organization/wasa.avif"
+    },
+
+    "amount": 950,
+    "dueDate": "September 10, 2025"
+  },
+  {
+    "id": 5,
+    "billType": "Credit card Bill",
+    "icon": "/assests/bill-type/credit-card.jpg",
+    "organization": {
+      "name": "DBBL",
+      "icon": "/assests/Organization/Dbbl.jpg"
+    },
+
+    "amount": 3850,
+    "dueDate": "October 27, 2025"
+  },
+  {
+    "id": 6,
+    "billType": "Tuition Bill",
+    "icon": "/assests/bill-type/tuiton.avif",
+    "organization": {
+      "name": "shikho",
+      "icon": "/assests/Organization/shikho.webp"
+    },
+
+    "amount": 7500,
+    "dueDate": "November 3, 2025"
+  },
+  {
+    "id": 7,
+    "billType": "Recharge Bill",
+    "icon": "/assests/bill-type/recharge.png",
+    "organization": {
+      "name": "GP",
+      "icon": "/assests/Organization/gp.png"
+    },
+
+    "amount": 200,
+    "dueDate": "May 11, 2025"
+  },
+  {
+    "id": 8,
+    "billType": "TV Bill",
+    "icon": "/assests/bill-type/tvBill.avif",
+    "organization": {
+      "name": "Dish Network",
+      "icon": "/assests/Organization/dish.png"
+    },
+
+    "amount": 450,
+    "dueDate": "June 24, 2025"
+  }
+]
