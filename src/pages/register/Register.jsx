@@ -6,7 +6,7 @@ import { FaEyeSlash } from "react-icons/fa6";
 import { FaEye } from "react-icons/fa";
 
 const Register = () => {
-  const { createUser, updateUserProfile, user } = use(Authcontext);
+  const { createUser, updateUserProfile } = use(Authcontext);
 
   const [errorMessege, setErrorMessege] = useState("");
   const [succesMessege, setSuccesMessege] = useState("");
@@ -18,7 +18,6 @@ const Register = () => {
 
     const email = e.target.email.value;
     const password = e.target.password.value;
-    console.log(email, password, name, UserPhotoUrl);
 
     setErrorMessege("");
     setSuccesMessege("");
@@ -39,8 +38,7 @@ const Register = () => {
     }
 
     createUser(email, password)
-      .then((result) => {
-        console.log(result);
+      .then(() => {
         updateUserProfile(name, UserPhotoUrl)
           .then(() => {
             setSuccesMessege("User has created succesfully !");
@@ -49,11 +47,10 @@ const Register = () => {
           .catch((error) => error.message);
       })
       .catch((error) => {
-        console.log(error);
         setErrorMessege(error.message);
       });
   };
-  console.log(user);
+
   return (
     <>
       <div className="hero bg-base-200 mt-5 bg-[url('/reg-bg.webp')]">

@@ -3,8 +3,6 @@ import { NavLink, useNavigate } from "react-router";
 import PageDetails from "./PageDetails";
 
 const BillPage = ({ bill }) => {
-  //   console.log(bill.id);
-
   const { id, billType, icon, organization } = bill;
   const navigation = useNavigate();
 
@@ -13,7 +11,7 @@ const BillPage = ({ bill }) => {
   };
   return (
     <>
-      <div className="bg-[#FFFF] shadow-2xl ">
+      <div className="bg-[#97fab8] shadow-2xl rounded ">
         <div className="  rounded-2xl flex  items-center lg:items-center md:items-start  gap-4 p-3  md:justify-around lg:justify-around lg:px-10 md:py-6 lg:p-6 ">
           <div>
             <img

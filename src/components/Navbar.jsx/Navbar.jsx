@@ -55,13 +55,11 @@ const Navbar = () => {
 
   const signOutHandler = () => {
     signOutUser()
-      .then((result) => {
-        console.log(result);
-
+      .then(() => {
         toast.success("signout succesfully !");
       })
       .then((error) => {
-        console.log(error);
+        toast.error(error.message);
       });
   };
 

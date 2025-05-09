@@ -7,7 +7,6 @@ const Profile = () => {
   const Name = user.displayName;
   const email = user.email;
   const userPhoto = user.photoURL;
-  // console.log(userPhoto);
 
   return (
     <div className="mt-5 flex flex-col justify-center items-center bg-[url('/pro-bg2.jpg')] rounded py-6">

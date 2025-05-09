@@ -9,16 +9,16 @@ const PageDetails = () => {
 
   const navigation = useNavigate();
   const { setBillAmount, paidList, setPaidList } = use(Authcontext);
-  console.log(paidList);
 
   const [bill, setBill] = useState(null);
   const [showModal, setShowModal] = useState(false);
   const [value, setValue] = useState(false);
   const [ispaid, setIspaid] = useState(false);
+  //
   useEffect(() => {
-    if (paidList.includes(parseInt(id))) {
-      setIspaid(true);
-    }
+    // if (paidList.includes(parseInt(id))) {
+    //   setIspaid(true);
+    // }
 
     fetch("../billsInfo.json")
       .then((res) => res.json())
@@ -27,7 +27,7 @@ const PageDetails = () => {
         setBill(bill);
       });
   }, [id, paidList]);
-
+  //
   if (!bill) {
     return (
       <div>
@@ -35,7 +35,7 @@ const PageDetails = () => {
       </div>
     );
   }
-  const { organization, billType, amount, dueDate } = bill;
+  const { organization, billType, amount, dueDate, icon } = bill;
 
   const paybillHnadler = () => {
     if (ispaid) {
@@ -44,21 +44,33 @@ const PageDetails = () => {
       alert("Already paid");
       toast.error("Already paid");
       navigation("/bills");
-      return;
+      return setValue(true);
+    }
+    if (paidList.includes(parseInt(id))) {
+      return setIspaid(true);
+    } else if (!paidList.includes(parseInt(id))) {
+      setPaidList([...paidList, parseInt(id)]);
+      setIspaid(false);
     }
 
-    setPaidList([...paidList, parseInt(id)]);
     setBillAmount((pre) => pre - amount);
 
     setShowModal(true);
   };
 
   return (
-    <div className="bg-[#8affc3] p-4 flex flex-col md:flex-row justify-center items-center gap-3 md:gap-12 my-8 rounded">
-      <div>
+    <div className="bg-[#8affc3] p-4 flex flex-col lg:flex-row justify-center items-center gap-3 lg:gap-12 my-8 rounded">
+      <div className="relative w-fit">
         <img className="w-60 rounded-xl" src={organization.icon} alt="" />
+
+        <img
+          className="absolute -bottom-3 right-1 h-6 w-10 md:h-6 md:w-7 lg:h-6 lg:w-10 rounded border border-[#90f787]"
+          src={icon}
+          alt=""
+        />
       </div>
-      <div className="md:flex items-center gap-10">
+
+      <div className="lg:flex items-center gap-10">
         <h1 className="text-2xl font-bold mb-2"> {organization.name} </h1>
         <h2 className="font-extrabold text-[#0e6496]">
           {" "}
@@ -75,7 +87,6 @@ const PageDetails = () => {
       <div>
         <button
           onClick={paybillHnadler}
-          disabled={value}
           className={`bg-[#07f32f] hover:bg-[#3e6e46] px-8 py-1 rounded text-white ${
             value
               ? "bg-gray-400 cursor-not-allowed"

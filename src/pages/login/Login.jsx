@@ -5,8 +5,11 @@ import { toast } from "react-toastify";
 import { FaEyeSlash } from "react-icons/fa6";
 import { FaEye } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
+import { useLocation } from "react-router";
 const Login = () => {
   const navigation = useNavigate();
+  const location = useLocation();
+
   const { signInUser, signInGoogleUser, resetPasseword } = use(Authcontext);
 
   const [errorMessege, setErrorMessege] = useState("");
@@ -17,7 +20,6 @@ const Login = () => {
     e.preventDefault();
     const email = e.target.email.value;
     const password = e.target.password.value;
-    console.log(email, password);
 
     setErrorMessege("");
     setSuccesMessege("");
@@ -38,29 +40,24 @@ const Login = () => {
     }
 
     signInUser(email, password)
-      .then((result) => {
-        console.log(result);
+      .then(() => {
         setSuccesMessege("User Login succesfully !");
         toast.success("User Login succesfully !");
-        return navigation(location?.state || "/");
+        return navigation(`${location.state ? location.state : "/"}`);
       })
       .catch((error) => {
-        console.log(error);
         setErrorMessege(error.message);
       });
   };
 
   const SignInGoogleHandler = () => {
     signInGoogleUser()
-      .then((result) => {
-        console.log(result);
-
+      .then(() => {
         setSuccesMessege("Sign In with Google succesfully");
         toast.success("Sign In with Google succesfully");
-        return navigation(location?.state || "/");
+        return navigation(`${location.state ? location.state : "/"}`);
       })
       .catch((error) => {
-        console.log(error);
         toast.error(setErrorMessege(error.message));
       });
   };
@@ -73,7 +70,6 @@ const Login = () => {
         return toast.success("Password eamil reset send");
       })
       .catch((error) => {
-        console.log(error);
         toast.error(setErrorMessege(error.message));
       });
   };

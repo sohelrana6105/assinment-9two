@@ -25,7 +25,7 @@ const UpdateUser = () => {
 
           toast.success("User Name and Url Updated sucessfully");
         })
-        .catch((error) => console.log(error));
+        .catch((error) => toast.error(error.message));
       return;
     }
     if (name) {
@@ -38,10 +38,9 @@ const UpdateUser = () => {
             });
           }
 
-          console.log("User Name Updated sucessfully");
           toast.success("User Name Updated sucessfully");
         })
-        .catch((error) => console.log(error));
+        .catch((error) => toast.error(error.message));
       return;
     }
     if (url) {
@@ -56,7 +55,7 @@ const UpdateUser = () => {
 
           toast.success("User  Url Updated sucessfully");
         })
-        .catch((error) => console.log(error));
+        .catch((error) => toast.error(error.message));
       return;
     }
   };
